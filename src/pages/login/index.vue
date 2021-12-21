@@ -18,8 +18,8 @@
               <el-button>重置</el-button>
           </el-form-item> -->
           <div>
-              <el-button>登录</el-button>
-              <el-button>重置</el-button>
+              <el-button id="button">登录</el-button>
+              <el-button id="button">重置</el-button>
           </div>
       </el-form>
     </el-card>
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'Home',
+  name: 'Login',
   data () {
     return {
         username: '',
@@ -42,8 +42,19 @@ export default {
 .login-wrap {
   text-align: center
 }
+
+/* 类选择器 */
 .box-card{
     width: 400px;
     display: inline-block;
+    color: red;
+    border: 2px rebeccapurple dashed;
+    background: aquamarine;
+}
+
+/* id选择器 */
+#button {
+  color: blue;
+  background: yellowgreen;
 }
 </style>
