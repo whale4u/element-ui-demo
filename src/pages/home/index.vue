@@ -1,5 +1,9 @@
 <template>
-<div>
+<el-container>
+  <el-header>Header</el-header>
+  <el-container>
+    <el-aside width='100px'>Aside</el-aside>
+    <el-main>
   <el-row>  
     <el-button type="text" @click="dialogFormVisible = true">新建</el-button>
     <el-button type="primary">删除</el-button>
@@ -56,7 +60,9 @@
       </template>
     </el-table-column>
   </el-table>
-</div>
+    </el-main>
+  </el-container>
+</el-container>
 </template>
 
 <script>
@@ -128,6 +134,18 @@
 </script>
 
 <style scoped>
+.el-header, .el-footer{
+  background-color: #B3C0D1;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
+
+.el-aside{
+  color: pink;
+  background-color: yellow;
+}
+  
 .el-table{
   color: blue;
 }
