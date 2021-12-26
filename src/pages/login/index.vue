@@ -18,7 +18,7 @@
               <el-button>重置</el-button>
           </el-form-item> -->
           <div>
-              <el-button id="button">登录</el-button>
+              <el-button id="button" @click="getToken">登录</el-button>
               <el-button id="button">重置</el-button>
           </div>
       </el-form>
@@ -27,12 +27,35 @@
 </template>
 
 <script>
+// import axios from 'axios';
+import { getData } from '../../../http'
 export default {
   name: 'Login',
   data () {
     return {
+      loginForm: {
         username: '',
         password: ''
+      }
+    }
+  },
+  mounted() {
+    this.getToken();
+  },
+  methods: {
+    getToken() {
+      // axios.get('/model/data.json').then(res => {
+      //   const data = res?.data?.data;
+      //   if(data?.token) {
+      //     location.href = '/home'
+      //   }
+      // })
+      getData('/model/data.json').then(res => {
+        console.log('res:', res);
+          if(res.token) {
+          location.href = '/home'
+        }
+      })
     }
   }
 }
