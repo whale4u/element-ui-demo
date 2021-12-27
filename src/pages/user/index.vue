@@ -1,6 +1,24 @@
 <template>
 <div>
-  <div>{{user}}</div>
+  <!-- <div>{{user}}</div> -->
+ <el-table
+      :data="user[0]"
+      style="width: 100%">
+      <el-table-column
+        prop="username"
+        label="日期"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="password"
+        label="姓名"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="role"
+        label="地址">
+      </el-table-column>
+    </el-table>
 </div>
 </template>
 
@@ -22,7 +40,7 @@ export default {
     getUser() {
       axios.get('/model/user.json').then(res => {
         console.log('user', res)
-        this.user.push(res)
+        this.user.push(res.data['data'])
       })
       // getData('/model/user.json').then(res => {
       //   console.log(res);

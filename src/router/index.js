@@ -1,6 +1,7 @@
 import Vue from "vue"
 import Router from "vue-router"
 import Login from '@/pages/login/index'
+import Common from '@/pages/common'
 import Home from '@/pages/home/index'
 import User from '@/pages/user/index'
 
@@ -14,14 +15,21 @@ export default new Router({
             component: Login
         },
         {
-            path: '/home',
-            name: 'Home',
-            component: Home
-        },
-        {
-            path: '/user',
-            name: 'User',
-            component: User
+            path: '/',
+            name: 'Common',
+            component: Common,
+            children: [
+                {
+                    path: '/',
+                    name: 'Home',
+                    component: Home
+                },
+                {
+                    path: '/user',
+                    name: 'User',
+                    component: User
+                }
+            ]
         }
     ],
     // 修改此处！解决路由不生效问题！

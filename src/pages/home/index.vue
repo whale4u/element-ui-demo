@@ -1,23 +1,5 @@
 <template>
 <el-container>
-  <el-header>
-    <el-menu
-      :default-active="this.$route.path" 
-      router mode="horizontal"
-      class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b">
-      <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name">
-        <template slot="title">
-          <i class="el-icon-s-platform"></i>
-          <span> {{ item.navItem }}</span>
-        </template>
-      </el-menu-item>        
-    </el-menu>
-  </el-header>
   <el-container>
     <!-- <div>
       <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
@@ -124,13 +106,6 @@
     name: 'Home',
     data() {
       return {
-         navList:[ 
-            {name:'/components/ServiceHall',navItem:'服务大厅'}, 
-            {name:'/components/Management',navItem:'权限管理'},
-            {name:'/components/User',navItem:'用户管理'}, 
-            {name:'/users',navItem:'用户设置'}, 
-            {name:'/login',navItem:'登陆'}, 
-        ],
         tableData: [{
           date: '2016-05-02',
           name: '王小虎',

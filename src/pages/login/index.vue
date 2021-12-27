@@ -6,12 +6,10 @@
       </div>
       <el-form lable-width="160px" inline>
           <el-form-item label="用户名：">
-              
-              <el-input v-model="username" placeholder="请输入用户名"></el-input>
+              <el-input v-model="loginForm.username" placeholder="请输入用户名"></el-input>
           </el-form-item>
           <el-form-item label="密码：">
-              
-              <el-input placeholder="请输入密码" v-model="password" show-password></el-input>
+              <el-input placeholder="请输入密码" v-model="loginForm.password" show-password></el-input>
           </el-form-item>
           <!-- <el-form-item>
               <el-button>登录</el-button>
@@ -27,8 +25,8 @@
 </template>
 
 <script>
-// import axios from 'axios';
-import { getData } from '../../../http'
+import axios from 'axios';
+// import { getData } from '../../../http'
 export default {
   name: 'Login',
   data () {
@@ -40,22 +38,22 @@ export default {
     }
   },
   mounted() {
-    this.getToken();
+    // this.getToken();
   },
   methods: {
     getToken() {
-      // axios.get('/model/data.json').then(res => {
-      //   const data = res?.data?.data;
-      //   if(data?.token) {
+      axios.get('/model/data.json').then(res => {
+        const data = res?.data?.data;
+        if(data?.token) {
+          location.href = '/'
+        }
+      })
+      // getData('/model/data.json').then(res => {
+      //   console.log('res:', res.data);
+      //     if(res.token) {
       //     location.href = '/home'
       //   }
       // })
-      getData('/model/data.json').then(res => {
-        console.log('res:', res);
-          if(res.token) {
-          location.href = '/home'
-        }
-      })
     }
   }
 }
