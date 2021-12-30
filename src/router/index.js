@@ -7,7 +7,7 @@ import User from '@/pages/user/index'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     routes: [
         {
             path: '/login',
@@ -22,6 +22,9 @@ export default new Router({
                 {
                     path: '/',
                     name: 'Home',
+                    meta: {
+                        requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
+                    },
                     component: Home
                 },
                 {
@@ -35,3 +38,14 @@ export default new Router({
     // 修改此处！解决路由不生效问题！
     mode: 'history'
 })
+
+//路由跳转之前
+router.beforeEach((to, from, next) => {
+    if (to.path !== '/login' && !localStorage.token) {
+        alert("请登录！")
+        return next('/login')
+    }
+     next()
+  })
+
+export default router

@@ -16,9 +16,10 @@
           <i class="el-icon-s-platform"></i>
           <span> {{ item.navItem }}</span>
         </template>
-      </el-menu-item>        
+      </el-menu-item>
+      <el-button type="info" @click="logout">退出</el-button>
     </el-menu>
-  </el-header>
+    </el-header>
     <router-view/>
   </div>
 </template>
@@ -36,7 +37,20 @@ export default {
             {name:'/login',navItem:'登陆'}, 
         ],
       }
-  }
+  },
+  methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    logout() {
+      alert("logout!")
+      localStorage.removeItem('token')
+       location.replace('/login')
+    }
+    }
 }
 </script>
 

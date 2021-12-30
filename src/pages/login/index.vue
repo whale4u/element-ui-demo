@@ -45,7 +45,12 @@ export default {
       axios.get('/model/data.json').then(res => {
         const data = res?.data?.data;
         if(data?.token) {
-          location.href = '/'
+          // 存入token
+          localStorage.setItem('token', data.token)
+          console.log(data.token)
+          // location.href = '/'
+          // 另一种写法
+          location.replace('/')
         }
       })
       // getData('/model/data.json').then(res => {
