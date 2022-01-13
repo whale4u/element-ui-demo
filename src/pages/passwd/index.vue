@@ -1,24 +1,6 @@
 <template>
 <div>
-  <!-- <div>{{user}}</div> -->
- <el-table
-      :data="user[0]"
-      style="width: 100%">
-      <el-table-column
-        prop="username"
-        label="日期"
-        width="180">
-      </el-table-column>
-      <!-- <el-table-column
-        prop="password"
-        label="姓名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="role"
-        label="地址">
-      </el-table-column> -->
-    </el-table>
+密码库
 </div>
 </template>
 

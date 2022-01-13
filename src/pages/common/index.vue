@@ -32,7 +32,7 @@ export default {
          navList:[ 
             {name:'/',navItem:'主页'}, 
             {name:'/components/Management',navItem:'xxx'},
-            {name:'/components/User',navItem:'xxx'}, 
+            {name:'/passwd',navItem:'密码库'}, 
             {name:'/user',navItem:'用户设置'}, 
             {name:'/login',navItem:'登陆'}, 
         ],

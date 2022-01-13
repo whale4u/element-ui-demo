@@ -4,6 +4,7 @@ import Login from '@/pages/login/index'
 import Common from '@/pages/common'
 import Home from '@/pages/home/index'
 import User from '@/pages/user/index'
+import Passwd from '@/pages/passwd/index'
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ const router = new Router({
                     path: '/user',
                     name: 'User',
                     component: User
+                },
+                {
+                    path: '/passwd',
+                    name: 'Passwd',
+                    component: Passwd
                 }
             ]
         }

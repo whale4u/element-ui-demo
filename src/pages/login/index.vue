@@ -42,17 +42,32 @@ export default {
   },
   methods: {
     getToken() {
-      axios.get('/model/data.json').then(res => {
-        const data = res?.data?.data;
+      axios.post('/home/login', JSON.stringify(this.loginForm))
+      .then(function (response) {
+        // console.log(response.data)
+        const data = response?.data?.data;
         if(data?.token) {
-          // 存入token
           localStorage.setItem('token', data.token)
           console.log(data.token)
-          // location.href = '/'
-          // 另一种写法
           location.replace('/')
+        } else {
+          alert("登录失败！")
         }
       })
+      .catch(function (error) {
+        console.log(error)
+      });
+      // axios.get('/model/data.json').then(res => {
+      //   const data = res?.data?.data;
+      //   if(data?.token) {
+      //     // 存入token
+      //     localStorage.setItem('token', data.token)
+      //     console.log(data.token)
+      //     // location.href = '/'
+      //     // 另一种写法
+      //     location.replace('/')
+      //   }
+      // })
       // getData('/model/data.json').then(res => {
       //   console.log('res:', res.data);
       //     if(res.token) {
