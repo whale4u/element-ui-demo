@@ -1,35 +1,34 @@
 <template>
 <div>
-密码库
+    密码库
 </div>
 </template>
 
 <script>
 import axios from 'axios';
-// import { getData } from '../../../http'
 export default {
-  name: 'User',
-  data() {
-    return {
-      user: []
+    name: 'User',
+    data() {
+        return {
+            user: []
+        }
+    },
+    mounted() {
+        // console.log('22312321')
+        this.getUser();
+    },
+    methods: {
+        getUser() {
+            axios.get('/user/getall').then(res => {
+                console.log('user', res.data.message)
+                this.user.push(res.data.message)
+            })
+            // getData('/model/user.json').then(res => {
+            //   console.log(res);
+            //   this.user.push(res)
+            // })
+        }
     }
-  },
-  mounted() {
-    // console.log('22312321')
-    this.getUser();
-  },
-  methods: {
-    getUser() {
-      axios.get('/user/getall').then(res => {
-        console.log('user', res.data.message)
-        this.user.push(res.data.message)
-      })
-      // getData('/model/user.json').then(res => {
-      //   console.log(res);
-      //   this.user.push(res)
-      // })
-    }
-  }
 }
 </script>
 

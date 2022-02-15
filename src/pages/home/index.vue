@@ -1,62 +1,48 @@
 <template>
 <el-container>
-    <el-container>
-  <el-main>
-  <el-button type="primary" @click="newDialogFormVisible = true">新建</el-button>
-  <!-- 收货地址对话框 -->
-  <el-dialog title="收货地址" :visible.sync="newDialogFormVisible">
-    <el-form :model="newDialogForm">
-      <el-form-item label="活动日期" :label-width="formLabelWidth">
-        <el-date-picker
-        v-model="newDialogForm.date"
-        type="date"
-        placeholder="选择日期">
-      </el-date-picker>
-      </el-form-item>
-      <el-form-item label="名称" :label-width="formLabelWidth">
-        <el-input v-model="newDialogForm.name" autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item label="地址" :label-width="formLabelWidth">
-        <el-input v-model="newDialogForm.address" autocomplete="off"></el-input>
-      </el-form-item>
-    </el-form>
-    <div slot="footer" class="dialog-footer">
-      <el-button @click="newDialogFormVisible = false">取 消</el-button>
-      <el-button type="primary" @click="handleClickedAdd">确 定</el-button>
-    </div>
-  </el-dialog>
+    <el-main>
+        <el-button type="primary" @click="newDialogFormVisible = true">新建</el-button>
+        <!-- 收货地址对话框 -->
+        <el-dialog title="收货地址" :visible.sync="newDialogFormVisible">
+            <el-form :model="newDialogForm">
+                <el-form-item label="活动日期" :label-width="formLabelWidth">
+                    <el-date-picker v-model="newDialogForm.date" type="date" placeholder="选择日期">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="名称" :label-width="formLabelWidth">
+                    <el-input v-model="newDialogForm.name" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="地址" :label-width="formLabelWidth">
+                    <el-input v-model="newDialogForm.address" autocomplete="off"></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="newDialogFormVisible = false">取 消</el-button>
+                <el-button type="primary" @click="handleClickedAdd">确 定</el-button>
+            </div>
+        </el-dialog>
 
-  <!-- 表格 -->
-  <el-table
-    :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
-    style="width: 100%">
-    <el-table-column
-      label="Date"
-      prop="date">
-    </el-table-column>
-    <el-table-column
-      label="Name"
-      prop="name">
-    </el-table-column>
-    <el-table-column
-      label="Address"
-      prop="address">
-    </el-table-column>
-    <el-table-column
-      align="right">
-<template slot="header">
-<el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
-</template>
+        <!-- 表格 -->
+        <el-table :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))" style="width: 100%">
+            <el-table-column label="Date" prop="date">
+            </el-table-column>
+            <el-table-column label="Name" prop="name">
+            </el-table-column>
+            <el-table-column label="Address" prop="address">
+            </el-table-column>
+            <el-table-column align="right">
+                <template slot="header">
+                    <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
+                </template>
 
-<template slot-scope="scope">
-<el-button size="mini" @click="handleEdit(scope.$index, scope.row)">
-    Edit</el-button>
-<el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
-</template>
-    </el-table-column>
-  </el-table>
+                <template slot-scope="scope">
+                    <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">
+                        Edit</el-button>
+                    <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
     </el-main>
-  </el-container>
 </el-container>
 </template>
 

@@ -46,12 +46,12 @@ const router = new Router({
 })
 
 //路由跳转之前
-router.beforeEach((to, from, next) => {
-    if (to.path !== '/login' && !localStorage.token) {
-        alert("请登录！")
-        return next('/login')
-    }
-     next()
-  })
+// router.beforeEach((to, from, next) => {
+//     if (to.path !== '/login' && !localStorage.token) {
+//         alert("请登录！")
+//         return next('/login')
+//     }
+//      next()
+//   })
 
 export default router
