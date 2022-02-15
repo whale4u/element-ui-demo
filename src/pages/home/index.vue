@@ -40,28 +40,31 @@
     </el-menu>
     </div> -->
   <el-main>
-  <el-row>  
-    <el-button type="text" @click="dialogFormVisible = true">新建</el-button>
-    <el-button type="primary">删除</el-button>
-  </el-row>
+  <el-button type="text" @click="dialogFormVisible = true">新建</el-button>
+  <!-- 收货地址对话框 -->
   <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
-  <el-form :model="form">
-    <el-form-item label="活动日期" :label-width="formLabelWidth">
-      <el-date-picker
-      v-model="form.date"
-      type="date"
-      placeholder="选择日期">
-    </el-date-picker>
-    </el-form-item>
-    <el-form-item label="名称" :label-width="formLabelWidth">
-      <el-input v-model="form.name" autocomplete="off"></el-input>
-    </el-form-item>
-  </el-form>
-  <div slot="footer" class="dialog-footer">
-    <el-button @click="dialogFormVisible = false">取 消</el-button>
-    <el-button type="primary" @click="handleClickedAdd">确 定</el-button>
-  </div>
+    <el-form :model="dialogForm">
+      <el-form-item label="活动日期" :label-width="formLabelWidth">
+        <el-date-picker
+        v-model="dialogForm.date"
+        type="date"
+        placeholder="选择日期">
+      </el-date-picker>
+      </el-form-item>
+      <el-form-item label="名称" :label-width="formLabelWidth">
+        <el-input v-model="dialogForm.name" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="地址" :label-width="formLabelWidth">
+        <el-input v-model="dialogForm.address" autocomplete="off"></el-input>
+      </el-form-item>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click="dialogFormVisible = false">取 消</el-button>
+      <el-button type="primary" @click="handleClickedAdd">确 定</el-button>
+    </div>
   </el-dialog>
+
+  <!-- 表格对话框 -->
   <el-table
     :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
     style="width: 100%">
@@ -126,15 +129,10 @@
         search: '',
         dialogTableVisible: false,
         dialogFormVisible: false,
-        form: {
+        dialogForm: {
           name: '',
           date: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
+          address: ''
         },
         formLabelWidth: '120px',
         isCollapse: true
@@ -148,7 +146,12 @@
         console.log(key, keyPath);
       },
       handleEdit(index, row) {
-        console.log(index, row);
+        // console.log(index, row);
+        // console.log(row.name)
+        this.dialogForm.date = row.date
+        this.dialogForm.name = row.name
+        this.dialogForm.address = row.address
+        this.dialogFormVisible = true
       },
       handleDelete(index) {
         this.$delete(this.tableData, index)
@@ -168,7 +171,7 @@
         this.tableData.push({
           date:dayStr,
           name: this.form.name,
-          address: "xxxx"
+          address: this.form.address
         })
         this.dialogFormVisible = false
       }
