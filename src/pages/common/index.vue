@@ -8,7 +8,9 @@
                 <span> {{ item.navItem }}</span>
             </template>
         </el-menu-item>
-        <div class="right-button"><el-button type="primary" icon="el-icon-edit" circle></el-button></div>
+        <div class="right-button">
+            <el-button type="primary" icon="el-icon-edit" circle></el-button>
+        </div>
     </el-menu>
     <router-view />
 </div>
@@ -56,22 +58,23 @@ export default {
             location.replace('/login')
         },
         handleClick(item) {
-          if (item.name === "/logout") {
-            this.logout()
-          }
+            if (item.name === "/logout") {
+                this.logout()
+            }
         }
     }
 }
 </script>
 
 <style>
-.right-button{
+.right-button {
     text-align: right;
     height: 61px;
     line-height: 61px;
     margin-right: 30px;
 }
-.logoutButton{
- color: brown;
+
+.logoutButton {
+    color: brown;
 }
 </style>
