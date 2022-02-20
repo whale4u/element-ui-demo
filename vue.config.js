@@ -22,16 +22,16 @@ module.exports = {
         https: false,
         hotOnly: false,
         /* 使用代理 */
-        proxy: {
-            '/api': {
-                /* 目标代理服务器地址 */
-                target: 'http://localhost:8090',
-                /* 允许跨域 */
-                changeOrigin: true,
-            pathRewrite:{  // 路径重写，
-              '^/api': ''  // 替换target中的请求地址，也就是说/api=/target，请求target这个地址的时候直接写成/api即可。
-            }
-            },
-        },
+        // proxy: {
+        //     '/api': {
+        //         /* 目标代理服务器地址 */
+        //         target: 'http://localhost:8090',
+        //         /* 允许跨域 */
+        //         changeOrigin: true,
+        //     pathRewrite:{  // 路径重写，
+        //       '^/api': ''  // 替换target中的请求地址，也就是说/api=/target，请求target这个地址的时候直接写成/api即可。
+        //     }
+        //     },
+        // },
     },
 }

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 export default {
     name: 'User',
     data() {
@@ -14,19 +14,38 @@ export default {
         }
     },
     mounted() {
-        // console.log('22312321')
         this.getUser();
     },
     methods: {
         getUser() {
-            axios.get('/user/getall').then(res => {
-                console.log('user', res.data.message)
-                this.user.push(res.data.message)
-            })
-            // getData('/model/user.json').then(res => {
-            //   console.log(res);
-            //   this.user.push(res)
+            // axios.get('/user/getall').then(res => {
+            //     console.log('user', res.data.message)
+            //     this.user.push(res.data.message)
             // })
+            return {
+            userList: [{
+                    name: 'niko',
+                    role: 'admin'
+                },
+                {
+                    name: '/passwd',
+                    navItem: '密码库'
+                },
+                {
+                    name: '/user',
+                    navItem: '用户管理'
+                },
+                {
+                    name: '/login',
+                    navItem: '登陆'
+                },
+                // {
+                //     name: '/logout',
+                //     navItem: '退出'
+                // },
+            ],
+        }
+
         }
     }
 }

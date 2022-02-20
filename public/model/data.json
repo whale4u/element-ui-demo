@@ -1,6 +1,36 @@
 {
-    "success": true,
-    "data": {
-        "token": "dfedfqweffwef"
-    }
+    "users": [{
+        "username": "admin",
+        "password": "pass",
+        "role": "root"
+    },{
+        "username": "admin1",
+        "password": "pass1",
+        "role": "root1"
+    },{
+        "username": "admin2",
+        "password": "pass2",
+        "role": "root2"
+    },{
+        "username": "admin3",
+        "password": "pass3",
+        "role": "root3"
+    }],
+    "passwd":[{
+        "id": "001",
+        "type": "site",
+        "name": "baidu.com",
+        "username": "admin2",
+        "password": "pass",
+        "url": "www.baidu.com",
+        "note": "this is a test"
+    },{
+        "id": "002",
+        "type": "site",
+        "name": "sina.com",
+        "username": "admin2",
+        "password": "pass",
+        "url": "www.sina.com",
+        "note": "this is another test"
+    }]
 }

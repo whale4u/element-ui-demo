@@ -37,10 +37,10 @@ export default {
                     name: '/login',
                     navItem: '登陆'
                 },
-                {
-                    // name: '/logout',
-                    navItem: '退出'
-                },
+                // {
+                //     name: '/logout',
+                //     navItem: '退出'
+                // },
             ],
         }
     },
