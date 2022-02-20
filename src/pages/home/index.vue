@@ -21,7 +21,6 @@
                 <el-button type="primary" @click="handleClickedAdd">确 定</el-button>
             </div>
         </el-dialog>
-
         <!-- 表格 -->
         <el-table :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))" style="width: 100%">
             <el-table-column label="Date" prop="date">
