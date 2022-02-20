@@ -4,22 +4,16 @@
     <el-table :data="user[0]" style="width: 100%">
         <el-table-column prop="username" label="用户名" width="180">
         </el-table-column>
-        <el-table-column
-        prop="password"
-        label="密码"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="role"
-        label="角色">
-      </el-table-column>
+        <el-table-column prop="password" label="密码" width="180">
+        </el-table-column>
+        <el-table-column prop="role" label="角色" width="180">
+        </el-table-column>
     </el-table>
 </div>
 </template>
 
 <script>
 import axios from 'axios';
-// import { getData } from '../../../http'
 export default {
     name: 'User',
     data() {
