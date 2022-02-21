@@ -42,27 +42,31 @@ export default {
         }
     },
     mounted() {
-        console.log('22312321')
+        // console.log('22312321')
         this.getUser();
     },
     methods: {
         // 搜索功能存在bug  2022-02-20 23:58:52
         queryUser(user) {
-            console.log(user);
-            axios.get("http://localhost:8090/users", {
-                params: {
-                    name: user
-                },
-            }).then(res => {
-                this.user = []
-                this.user.push(res.data)
-            })
+            // console.log(user);
+            if (user != "") {
+                axios.get("http://localhost:8090/users", {
+                    params: {
+                        username: user
+                    },
+                }).then(res => {
+                    this.user = []
+                    this.user.push(res.data)
+                })
+            } else {
+                this.getUser();
+            }
         },
         getUser() {
             axios.get('http://localhost:8090/users').then(res => {
                 // console.log('user', res.data.message)
                 // this.user.push(res.data.message)
-                console.log(res.data[0])
+                // console.log(res.data)
                 this.user.push(res.data)
             })
         }
